@@ -1,0 +1,25 @@
+﻿@model StatusCodeModel
+<div class="p-5">
+    <h1>
+        @{
+            if (Model.Code == 404)
+            {
+                @await Html.Resource("404-title", "Sorry, we can't find that page")
+            }
+            else
+            {
+                @Model.Code
+            }
+        }
+    </h1>
+    <p>
+        @if (Model.Code == 404)
+        {
+            @await Html.Resource("404-message", "The page you are looking for can no longer be found.")
+        }
+        else
+        {
+            @Model.Message
+        }
+    </p>
+</div>

@@ -1,0 +1,19 @@
+@model MrCMS.Web.Apps.Core.Areas.Admin.Models.Content.UpdateEmbedVideoAdminModel
+
+<div class="form-group">
+    <label asp-for="EmbedCode"></label>
+    <textarea asp-for="EmbedCode" class="form-control"></textarea>
+    <span asp-validation-for="EmbedCode"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Poster" class="w-100"></label>
+    <input type="text" asp-for="Poster" data-type="media-selector"/>
+    <span asp-validation-for="Poster"></span>
+</div> 
+
+<div class="form-group">
+    <label asp-for="MobilePoster" class="w-100"></label>
+    <input type="text" asp-for="MobilePoster" data-type="media-selector"/>
+    <span asp-validation-for="MobilePoster"></span>
+</div> 

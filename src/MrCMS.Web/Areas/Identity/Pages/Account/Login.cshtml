@@ -1,0 +1,49 @@
+@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <h1>@ViewData["Title"]</h1>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group mb-3">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                @Html.RenderRecaptcha()
+                <div class="btn-group mb-3">
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <a class="btn btn-secondary" asp-page="./ForgotPassword">Forgot your password?</a>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h2>Not registered?</h2>
+            <hr />
+            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="btn btn-secondary">Click here to register</a>
+        </section>
+    </div>
+</div>
+
+

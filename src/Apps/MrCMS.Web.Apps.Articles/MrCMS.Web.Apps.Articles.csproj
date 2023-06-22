@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+		<StaticWebAssetBasePath Condition="$(StaticWebAssetBasePath) == ''">/Apps/Articles/</StaticWebAssetBasePath>
+	</PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.3" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.4" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Apps\MrCMS.Web.Apps.Core\MrCMS.Web.Apps.Core.csproj" />
+        <ProjectReference Include="..\..\Lib\MrCMS.Web.Admin.Infrastructure\MrCMS.Web.Admin.Infrastructure.csproj" />
+        <ProjectReference Include="..\..\Lib\MrCMS.Web.Admin\MrCMS.Web.Admin.csproj" />
+        <ProjectReference Include="..\..\Lib\MrCMS\MrCMS.csproj" />
+    </ItemGroup>
+
+
+</Project>

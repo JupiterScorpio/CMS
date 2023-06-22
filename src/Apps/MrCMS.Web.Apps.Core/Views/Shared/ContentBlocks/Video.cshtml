@@ -1,0 +1,12 @@
+@using MrCMS.Web.Apps.Core.Entities.ContentBlocks
+@model MrCMS.Web.Apps.Core.Entities.ContentBlocks.Video
+
+
+@if (Model.ActiveType == Video.VideoType.EmbedVideo)
+{
+    await Html.RenderPartialAsync("BlockItems/EmbedVideo", Model.Embed);
+}
+else
+{
+    await Html.RenderPartialAsync("BlockItems/YoutubeVideo", Model.Youtube);
+}

@@ -1,0 +1,35 @@
+@using System.Drawing
+@model MrCMS.Web.Apps.Core.Entities.BlockItems.EmbedVideo
+@{
+    var collapseId = $"collapse-{Guid.NewGuid()}";
+}
+
+@if (string.IsNullOrWhiteSpace(Model.Poster))
+{
+    <div class="ratio ratio-16x9 my-3">
+        @Html.Raw(Model.EmbedCode)
+    </div>
+}
+else
+{
+    var hasMobilePoster = !string.IsNullOrWhiteSpace(Model.MobilePoster);
+    <div class="my-3">
+        <div class="collapse show" data-id="@(collapseId)" data-toggle="collapse" data-target="[data-id='@(collapseId)']" aria-expanded="true">
+            <div class="ratio ratio-16x9 my-3">
+                <div class="video-placeholder">
+                    @await Html.RenderImage(Model.Poster, attributes: new { @class = hasMobilePoster ? "d-none d-sm-block" : "" })
+                    @if (hasMobilePoster)
+                    {
+                        @await Html.RenderImage(Model.MobilePoster, new Size { Width = 560 }, attributes: new { @class = "d-sm-none" })
+                    }
+                    <div class="video-play"></div>
+                </div>
+            </div>
+        </div>
+        <div class="collapse" data-id="@(collapseId)">
+            <div class="ratio ratio-16x9">
+                @Html.Raw(Model.EmbedCode)
+            </div>
+        </div>
+    </div>
+}
